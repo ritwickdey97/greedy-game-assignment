@@ -1,11 +1,10 @@
 //@ts-check
 import React, { useMemo } from 'react';
 import { Line } from 'react-chartjs-2';
-import { GameStat } from '../../model/GameStat';
 
 /**
  *
- * @param { {stats: GameStat[]} } props
+ * @param { {stats: import('../../model/GameStat').GameStat[]} } props
  */
 export const DrawCPMChart = props => {
   const { stats } = props;

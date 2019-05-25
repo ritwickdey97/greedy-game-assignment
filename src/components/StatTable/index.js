@@ -1,6 +1,5 @@
 //@ts-check
 import React from 'react';
-import { GameStat } from '../../model/GameStat';
 import ReactTable from 'react-table';
 
 const columns = [
@@ -33,7 +32,7 @@ const columns = [
 
 /**
  *
- * @param { {stats: GameStat[]} } props
+ * @param { {stats: import('../../model/GameStat').GameStat[]} } props
  */
 const StatTable = props => {
   return (
