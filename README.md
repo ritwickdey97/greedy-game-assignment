@@ -12,6 +12,6 @@ yarn start
 
 Deployed Url: https://ritwickdey97.github.io/greedy-game-assignment
 
-# Extra: 
+### Extra: 
 - Slow Network detector (200ms default)
 - Deployed using Travis CI
