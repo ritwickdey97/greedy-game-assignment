@@ -1,6 +1,6 @@
 import { GameStat } from '../model/GameStat';
 
-const BASE_ENDPOINT = `http://www.mocky.io/v2`;
+const BASE_ENDPOINT = `https://www.mocky.io/v2`;
 
 export const GameStatService = {
   getStats() {
