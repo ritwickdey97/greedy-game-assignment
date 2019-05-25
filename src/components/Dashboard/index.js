@@ -18,6 +18,7 @@ const Dashboard = () => {
   const [focusedDateRange, setFocusedDateRange] = useState(null);
 
   const [stats, setStats] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [filteredStats, setFilteredStats] = useState(null);
 
   useEffect(() => {
@@ -26,11 +27,19 @@ const Dashboard = () => {
       toast.info(`Slow! request is not completed within ${timeoutInMs}ms`);
     }, timeoutInMs);
 
+    setIsLoading(true);
+
     GameStatService.getStats()
       .then(stats => {
         setStats(stats);
       })
+      .catch(err => {
+        console.log(err);
+        const errorMsg = err.message;
+        toast.error(`${errorMsg || 'Failed to load data'}`);
+      })
       .finally(() => {
+        setIsLoading(false);
         clearTimeout(slowNetwork);
       });
   }, []);
@@ -47,7 +56,7 @@ const Dashboard = () => {
     setFilteredStats(_stats || []);
   }, [stats, selectedStartDate, selectedEndDate]);
 
-  if (filteredStats === null) {
+  if (isLoading) {
     return (
       <div className="fullScreenSpinner">
         <ClipLoader size={150} />
